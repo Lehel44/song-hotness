@@ -22,13 +22,13 @@ count = 0
 class ErrorMessage(Enum):
   NOT_FOUND = auto()
   
-# It's looking for the given expression in youtube database. Works like
+# It's looking for the given expression in YouTube database. Works like
 # we type something on youtube.com and we get a result list but way quicker.
-# search_expr: the expression to search on youtube
+# search_expr: the expression to search on YouTube
 # Returns the top result's video id.
 def youtube_search(search_expr):
 
-  # Build the youtube API object with the set properties.
+  # Build the YouTube API object with the set properties.
   youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
     developerKey=DEVELOPER_KEY)
   
@@ -90,7 +90,7 @@ def get_view_counts(songs, from_, to_, file_name):
     response = requests.get("https://www.googleapis.com/youtube/v3/videos?part=statistics", params = params)
     data = response.json()
 	
-	# Trying to get the view count out of response json. If an exception occurs, return -1, otherwise
+	# Trying to get the view count out of response json. If an exception occurs, write -1, otherwise
 	# the view count.
     view_count = 0
     try:

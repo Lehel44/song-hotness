@@ -9,15 +9,20 @@ SEARCH_BASE = "https://www.youtube.com/results?search_query="
 YT_BASE = "https://www.youtube.com/"
 counter = 0
 
+# The script is based on https://codelike.pro/create-a-crawler-with-rotating-ip-proxy-in-python/
+# article.
+
+# Scrapes the latest proxies from sslproxies.org.
 def get_latest_proxies():
   ua = UserAgent()
   proxies = []
-  # Retrieve latest proxies
   
+  # Retrieve latest proxies
   headers = {'User-Agent' : ua.random}
   proxies_req = requests.get('https://www.sslproxies.org/', headers = headers)
   proxies_doc = proxies_req.content
   
+  # Parse it to BeautifulSoup object.
   soup = bs(proxies_doc, 'html.parser')
   proxies_table = soup.find(id='proxylisttable')
 
@@ -40,6 +45,8 @@ def request_proxy_url(url):
   proxy_index = random_proxy(proxies)
   proxy = proxies[proxy_index]
   
+  # While proxy is not succeed, try to get another one and make
+  # the parameter request with the headers.
   proxy_succeed = False
   
   while not proxy_succeed:
@@ -62,13 +69,17 @@ def request_proxy_url(url):
 
   return response
 
+# This function uses the request_proxy_url with the appropriate urls
+# to scrape view numbers from YouTube.
 def get_single_view_count(search_expr):
 
-  # not thread safe, need to use locks
+  # Counter to see where the program is at.
   global counter
   counter = counter + 1
   print(counter, "\n")
   
+  # Try to get view count. If an exception occurs return -1,
+  # otherwise the view count.
   try:
     search_page = request_proxy_url(SEARCH_BASE + search_expr)
     #search_page = requests.get(SEARCH_BASE + search_expr, headers = headers, proxies = proxy_dict)
@@ -87,6 +98,10 @@ def get_single_view_count(search_expr):
 
   return view_count
 
+# Slices the dataframe, creates a thread pool to speed up things.
+# It maps the song names to the get_single_view_count function,
+# because map has a threaded implementation. It works well with
+# multiprocessing.dummy package.
 def get_view_count(songs, from_, to_):
 
   songs = songs.iloc[from_ : to_ + 1]
