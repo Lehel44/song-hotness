@@ -19,6 +19,8 @@ All metadata and features for all tracks are distributed in  **[fma_metadata.zip
 -   `features.csv`: common features extracted with  [librosa](https://librosa.github.io/librosa/).
 -   `echonest.csv`: audio features provided by  [Echonest](http://the.echonest.com/)  (now  [Spotify](https://www.spotify.com/)) for a subset of 13,129 tracks.
 
+Because of the size of the csv-s to run the notebooks you have to download [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) from their GitHub page.
+
 ## YouTube data mining
 We assumed that if a song was popular at any time then it has significantly higher view count than other videos have. Our first try was to use the YouTube Data API that provides access to the properties of youtube channels, videos etc. for developers. It's basically a hidden REST API communicating with YouTube in json format. The *yt_view_count.py* script is out implementation using this API to search for a video and retrieve it's view count. Later turned out Google limits the usage of the API based on quota per day and we didn't have enough time for that.
 
@@ -33,6 +35,11 @@ We used *pandas* python package to work with *csv* data and dataframes. The firs
 We cleaned the dataframe, deleted the unrelevant columns which had *NaN* or interpolated values, or it just had nothing to do with song popularity (for instance Wikipedia url link). Then we transformed the language and location attributes to categorical attributes. Kept the first 9, and named *others* the remaining ones.
 
 We joined the view count column retrieved by the *yt_view_count script* and normalized the values.
+
+## Manual
+
+To use the scripts you have to download the [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) and place the tracks.csv, features.csv and genres.csv to the same folder where the scripts are.
+The script to run is  **data-proc/songs_data_processing.ipynb**.
 
 ## References
 
