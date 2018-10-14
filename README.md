@@ -39,8 +39,8 @@ We joined the view count column retrieved by the *yt_view_count script* and than
 
 ## Manual
 
-For the homework's first milestone you need to run the **data-proc/songs_data_processing.ipynb** script and place the tracks3.csv, features2.csv and genres.csv to the same folder where the scripts are. You can download them from here:
-https://drive.google.com/open?id=1CG7zMMikkyEo9LO9Fb0JWd2OfoCeMF_Z
+For the homework's first milestone you need to run the **data-proc/songs_data_processing.ipynb** script and place the tracks3.csv, features2.csv and genres.csv to the same folder where the scripts are. You can download them from [here](
+https://drive.google.com/open?id=1CG7zMMikkyEo9LO9Fb0JWd2OfoCeMF_Z).
 These csv files are nearly the same as you can download from the original dataset [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) but we have modified their indexing for avoid multi-indexing.
 
 To run the YouTube script with YouTube Data API you have to run **youtube-scripts/songs_notebook.py**'s yt.get_view_counts function with the appropriate parameters and modify the
