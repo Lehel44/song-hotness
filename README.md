@@ -32,16 +32,18 @@ We returned to the first approach and successfully bypassed the quota limitation
 
 ## Data preparation
 
-We used *pandas* python package to work with *csv* data and dataframes. The first problem was the multiindexed csv data, that was really hard to work with in pandas. We fixed the problem in excel and deleted manually the higher indices, so a mono-indexed csv remained.
+We used *pandas* python package to work with *csv* data and dataframes. The first problem for us was the multiindexed csv data, that was really hard to work with in pandas. We fixed the problem in excel by concatenating the multi-indexes into one single index, so a mono-indexed csv remained.
 
-We cleaned the dataframe, deleted the unrelevant columns which had *NaN* or interpolated values, or it just had nothing to do with song popularity (for instance Wikipedia url link). Then we transformed the language and location attributes to categorical attributes. Kept the first 9, and named *others* the remaining ones.
-
-We joined the view count column retrieved by the *yt_view_count script* and normalized the values.
+We cleaned the dataframe, deleted the unrelevant columns which had *NaN* or interpolated values, or it just had nothing to do with song popularity (for instance Wikipedia url link). Then we transformed a few attributes like 'genres' to categorical attributes. Kept the first 9, and named *others* the remaining ones.
+We joined the view count column retrieved by the *yt_view_count script* and than merge the four datas (tracks, genres, youtube_view_counts and features) to one dataframe.
 
 ## Manual
 
-To use the scripts you have to download the [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) and place the tracks.csv, features.csv and genres.csv to the same folder where the scripts are.
-The data preparation script to run is  **data-proc/songs_data_processing.ipynb**. To run the YouTube script with YouTube Data API you have to run **youtube-scripts/songs_notebook.py**'s yt.get_view_counts function with the appropriate parameters and modify the
+For the homework's first milestone you need to run the **data-proc/songs_data_processing.ipynb** script and place the tracks3.csv, features2.csv and genres.csv to the same folder where the scripts are. You can download them from here:
+https://drive.google.com/open?id=1CG7zMMikkyEo9LO9Fb0JWd2OfoCeMF_Z
+These csv files are nearly the same as you can download from the original dataset [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) but we have modified their indexing for avoid multi-indexing.
+
+To run the YouTube script with YouTube Data API you have to run **youtube-scripts/songs_notebook.py**'s yt.get_view_counts function with the appropriate parameters and modify the
 Google API key in **youtube-scripts/yt_view_count.py**.
 
 ## References
