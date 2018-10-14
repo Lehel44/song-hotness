@@ -41,7 +41,8 @@ We joined the view count column retrieved by the *yt_view_count script* and norm
 ## Manual
 
 To use the scripts you have to download the [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) and place the tracks.csv, features.csv and genres.csv to the same folder where the scripts are.
-The script to run is  **data-proc/songs_data_processing.ipynb**.
+The data preparation script to run is  **data-proc/songs_data_processing.ipynb**. To run the YouTube script with YouTube Data API you have to run **youtube-scripts/songs_notebook.py**'s yt.get_view_counts function with the appropriate parameters and modify the
+Google API key in **youtube-scripts/yt_view_count.py**.
 
 ## References
 
