@@ -5,7 +5,7 @@
 
 ## The exercise
 
-We decided to create a neural network that decides whether a song will be popular or not. We measured the popularity of songs with YouTube view counts and we're going to try different subsets of song attributes to teach the neural network in order the get better predictions. We will also try how the prediction goes if we teach with songs of all time or songs after 2010.
+We decided to create a model that is able to decide whether a song will be popular or not with some accuracy. We measured the popularity of songs with YouTube view counts and we're going to try different subsets of song attributes to teach the neural network in order the get better predictions. We will also try how the prediction goes if we teach with songs of all time or songs after 2010.
 
 ## Data sources
 
