@@ -39,12 +39,18 @@ We joined the view count column retrieved by the *yt_view_count script* and than
 
 ## Manual
 
+**First milestone:**
+
 For the homework's first milestone you need to run the **data-proc/songs_data_processing.ipynb** script and place the tracks3.csv, features2.csv and genres.csv to the same folder where the scripts are. You can download them from [here](
 https://drive.google.com/open?id=1CG7zMMikkyEo9LO9Fb0JWd2OfoCeMF_Z).
 These csv files are nearly the same as you can download from the original dataset [FMA_Metadata.zip](https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) but we have modified their indexing for avoid multi-indexing.
 
 To run the YouTube script with YouTube Data API you have to run **youtube-scripts/songs_notebook.py**'s yt.get_view_counts function with the appropriate parameters and modify the
 Google API key in **youtube-scripts/yt_view_count.py**.
+
+**Second milestone:**
+
+For the homework's second milestone you need to run the **data-proc/songs_data_processing.ipynb** script similar way to the first milestone. In our dataset we have statistics about audio tones and spectrum dispersions like chroma cens or spectral contrast. These values lie side-by-side so at this point we have not used 1D convolution because this value borders could be inside in a window. We tried some fully conncted networks, the actual can be found in the **songs_data_processing.ipynb** script and tried to learn the network various subsets of our training data. We have not found the best network or the best subset but the network learned most of the time.
 
 ## References
 
