@@ -16505,7 +16505,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/robert/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+<pre>C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -17382,7 +17382,7 @@ Name: track_id, dtype: int64
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This csv contains the music genre for the most songs</span>
-<span class="n">genres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/robert/Downloads/fma_metadata/genres.csv&#39;</span><span class="p">)</span>
+<span class="n">genres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;genres.csv&#39;</span><span class="p">)</span>
 <span class="n">genres</span>
 </pre></div>
 
@@ -122221,9 +122221,608 @@ Name: track_id, dtype: int64
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Selecting the subset of columns. </span>
+
+<span class="n">full_tracks</span> <span class="o">=</span> <span class="n">full_tracks</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;kurtosis|genre|yt_views&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">full_tracks</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">full_tracks</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>yt_views</th>
+      <th>genre_Experimental</th>
+      <th>genre_Electronic</th>
+      <th>genre_Rock</th>
+      <th>genre_Instrumental</th>
+      <th>genre_Pop</th>
+      <th>genre_Folk</th>
+      <th>genre_Punk</th>
+      <th>genre_Avant-Garde</th>
+      <th>genre_Hip-Hop</th>
+      <th>genre_Noise</th>
+      <th>chroma_cens_kurtosis_1</th>
+      <th>chroma_cens_kurtosis_2</th>
+      <th>chroma_cens_kurtosis_3</th>
+      <th>chroma_cens_kurtosis_4</th>
+      <th>chroma_cens_kurtosis_5</th>
+      <th>chroma_cens_kurtosis_6</th>
+      <th>chroma_cens_kurtosis_7</th>
+      <th>chroma_cens_kurtosis_8</th>
+      <th>chroma_cens_kurtosis_9</th>
+      <th>chroma_cens_kurtosis_10</th>
+      <th>chroma_cens_kurtosis_11</th>
+      <th>chroma_cens_kurtosis_12</th>
+      <th>chroma_cqt_kurtosis_1</th>
+      <th>chroma_cqt_kurtosis_2</th>
+      <th>chroma_cqt_kurtosis_3</th>
+      <th>chroma_cqt_kurtosis_4</th>
+      <th>chroma_cqt_kurtosis_5</th>
+      <th>chroma_cqt_kurtosis_6</th>
+      <th>chroma_cqt_kurtosis_7</th>
+      <th>chroma_cqt_kurtosis_8</th>
+      <th>chroma_cqt_kurtosis_9</th>
+      <th>chroma_cqt_kurtosis_10</th>
+      <th>chroma_cqt_kurtosis_11</th>
+      <th>chroma_cqt_kurtosis_12</th>
+      <th>chroma_stft_kurtosis_1</th>
+      <th>chroma_stft_kurtosis_2</th>
+      <th>chroma_stft_kurtosis_3</th>
+      <th>chroma_stft_kurtosis_4</th>
+      <th>chroma_stft_kurtosis_5</th>
+      <th>chroma_stft_kurtosis_6</th>
+      <th>chroma_stft_kurtosis_7</th>
+      <th>chroma_stft_kurtosis_8</th>
+      <th>chroma_stft_kurtosis_9</th>
+      <th>chroma_stft_kurtosis_10</th>
+      <th>chroma_stft_kurtosis_11</th>
+      <th>chroma_stft_kurtosis_12</th>
+      <th>mfcc_kurtosis_1</th>
+      <th>mfcc_kurtosis_2</th>
+      <th>mfcc_kurtosis_3</th>
+      <th>mfcc_kurtosis_4</th>
+      <th>mfcc_kurtosis_5</th>
+      <th>mfcc_kurtosis_6</th>
+      <th>mfcc_kurtosis_7</th>
+      <th>mfcc_kurtosis_8</th>
+      <th>mfcc_kurtosis_9</th>
+      <th>mfcc_kurtosis_10</th>
+      <th>mfcc_kurtosis_11</th>
+      <th>mfcc_kurtosis_12</th>
+      <th>mfcc_kurtosis_13</th>
+      <th>mfcc_kurtosis_14</th>
+      <th>mfcc_kurtosis_15</th>
+      <th>mfcc_kurtosis_16</th>
+      <th>mfcc_kurtosis_17</th>
+      <th>mfcc_kurtosis_18</th>
+      <th>mfcc_kurtosis_19</th>
+      <th>mfcc_kurtosis_20</th>
+      <th>rmse_kurtosis_1</th>
+      <th>spectral_bandwidth_kurtosis_1</th>
+      <th>spectral_centroid_kurtosis_1</th>
+      <th>spectral_contrast_kurtosis_1</th>
+      <th>spectral_contrast_kurtosis_2</th>
+      <th>spectral_contrast_kurtosis_3</th>
+      <th>spectral_contrast_kurtosis_4</th>
+      <th>spectral_contrast_kurtosis_5</th>
+      <th>spectral_contrast_kurtosis_6</th>
+      <th>spectral_contrast_kurtosis_7</th>
+      <th>spectral_rolloff_kurtosis_1</th>
+      <th>tonnetz_kurtosis_1</th>
+      <th>tonnetz_kurtosis_2</th>
+      <th>tonnetz_kurtosis_3</th>
+      <th>tonnetz_kurtosis_4</th>
+      <th>tonnetz_kurtosis_5</th>
+      <th>tonnetz_kurtosis_6</th>
+      <th>zcr_kurtosis_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1936.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.888963</td>
+      <td>0.760539</td>
+      <td>0.345297</td>
+      <td>2.295201</td>
+      <td>1.654031</td>
+      <td>0.067592</td>
+      <td>1.366848</td>
+      <td>1.054094</td>
+      <td>0.108103</td>
+      <td>0.619185</td>
+      <td>1.038253</td>
+      <td>1.292235</td>
+      <td>-0.855436</td>
+      <td>-0.883988</td>
+      <td>-0.992211</td>
+      <td>-0.675419</td>
+      <td>-0.361638</td>
+      <td>-0.927972</td>
+      <td>0.094254</td>
+      <td>0.944722</td>
+      <td>-0.084373</td>
+      <td>-0.930610</td>
+      <td>-0.927093</td>
+      <td>-0.705974</td>
+      <td>-0.951502</td>
+      <td>-0.660734</td>
+      <td>-1.050015</td>
+      <td>-0.977441</td>
+      <td>-0.343043</td>
+      <td>-0.515404</td>
+      <td>-0.973297</td>
+      <td>-1.261086</td>
+      <td>-1.132458</td>
+      <td>-0.953374</td>
+      <td>-1.206439</td>
+      <td>-1.143998</td>
+      <td>4.296755</td>
+      <td>1.399977</td>
+      <td>0.112535</td>
+      <td>-0.211170</td>
+      <td>0.032953</td>
+      <td>-0.023489</td>
+      <td>0.150404</td>
+      <td>0.046454</td>
+      <td>0.033484</td>
+      <td>-0.064596</td>
+      <td>0.511647</td>
+      <td>0.374576</td>
+      <td>0.214880</td>
+      <td>0.101417</td>
+      <td>0.480927</td>
+      <td>0.269853</td>
+      <td>0.113057</td>
+      <td>0.094816</td>
+      <td>0.313537</td>
+      <td>0.055046</td>
+      <td>-0.643963</td>
+      <td>2.383340</td>
+      <td>3.519866</td>
+      <td>3.208793</td>
+      <td>0.243778</td>
+      <td>-0.010697</td>
+      <td>-0.281420</td>
+      <td>0.251526</td>
+      <td>1.278046</td>
+      <td>3.732807</td>
+      <td>2.379145</td>
+      <td>2.003829</td>
+      <td>1.376126</td>
+      <td>0.865467</td>
+      <td>2.015784</td>
+      <td>0.429529</td>
+      <td>0.480131</td>
+      <td>2.824694</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>87392.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.527563</td>
+      <td>-0.077654</td>
+      <td>-0.279610</td>
+      <td>0.685883</td>
+      <td>1.937570</td>
+      <td>0.880839</td>
+      <td>-0.923192</td>
+      <td>-0.927232</td>
+      <td>0.666617</td>
+      <td>1.038546</td>
+      <td>0.268932</td>
+      <td>1.125141</td>
+      <td>-0.605479</td>
+      <td>-1.181325</td>
+      <td>-0.663084</td>
+      <td>-0.390240</td>
+      <td>-0.436532</td>
+      <td>-0.658291</td>
+      <td>-1.038576</td>
+      <td>-1.353048</td>
+      <td>-0.331045</td>
+      <td>-0.708057</td>
+      <td>-0.472452</td>
+      <td>-0.562972</td>
+      <td>-0.794551</td>
+      <td>-1.264806</td>
+      <td>-0.664387</td>
+      <td>-0.405196</td>
+      <td>-0.022688</td>
+      <td>0.014883</td>
+      <td>-0.190766</td>
+      <td>-0.507027</td>
+      <td>-0.868905</td>
+      <td>-0.952605</td>
+      <td>-1.278158</td>
+      <td>-1.100202</td>
+      <td>2.624517</td>
+      <td>2.415293</td>
+      <td>0.440233</td>
+      <td>-0.782131</td>
+      <td>-0.771069</td>
+      <td>-0.724216</td>
+      <td>0.090260</td>
+      <td>0.152119</td>
+      <td>0.261731</td>
+      <td>-0.608905</td>
+      <td>0.096892</td>
+      <td>-0.248479</td>
+      <td>0.159848</td>
+      <td>0.637849</td>
+      <td>0.192881</td>
+      <td>0.286125</td>
+      <td>-0.066113</td>
+      <td>0.363365</td>
+      <td>0.614379</td>
+      <td>0.131038</td>
+      <td>0.001781</td>
+      <td>0.895442</td>
+      <td>1.322586</td>
+      <td>1.478091</td>
+      <td>0.357150</td>
+      <td>0.455044</td>
+      <td>0.075880</td>
+      <td>-0.110072</td>
+      <td>0.770549</td>
+      <td>0.933812</td>
+      <td>-0.238572</td>
+      <td>10.772251</td>
+      <td>0.921786</td>
+      <td>-0.189319</td>
+      <td>0.527997</td>
+      <td>0.150232</td>
+      <td>7.698659</td>
+      <td>6.808415</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>193927.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3.702245</td>
+      <td>-0.291193</td>
+      <td>2.196742</td>
+      <td>-0.234449</td>
+      <td>1.367364</td>
+      <td>0.998411</td>
+      <td>1.770694</td>
+      <td>1.604566</td>
+      <td>0.521217</td>
+      <td>1.982386</td>
+      <td>4.326824</td>
+      <td>1.300406</td>
+      <td>0.162342</td>
+      <td>-0.751456</td>
+      <td>-0.088175</td>
+      <td>-0.790742</td>
+      <td>-0.416584</td>
+      <td>0.101062</td>
+      <td>1.617054</td>
+      <td>-0.556345</td>
+      <td>-1.124511</td>
+      <td>-0.877715</td>
+      <td>-0.492781</td>
+      <td>-0.586906</td>
+      <td>0.954931</td>
+      <td>-1.266404</td>
+      <td>0.030425</td>
+      <td>-0.646823</td>
+      <td>0.664217</td>
+      <td>0.082626</td>
+      <td>-1.241245</td>
+      <td>0.102074</td>
+      <td>-0.742071</td>
+      <td>0.670849</td>
+      <td>-1.212852</td>
+      <td>0.359649</td>
+      <td>5.076893</td>
+      <td>1.161854</td>
+      <td>2.095651</td>
+      <td>1.372743</td>
+      <td>-0.203574</td>
+      <td>-0.345354</td>
+      <td>-0.529139</td>
+      <td>0.561974</td>
+      <td>0.281350</td>
+      <td>-0.150672</td>
+      <td>-0.051230</td>
+      <td>-0.189193</td>
+      <td>0.024108</td>
+      <td>0.111374</td>
+      <td>0.178489</td>
+      <td>-0.124275</td>
+      <td>-0.031861</td>
+      <td>-0.154391</td>
+      <td>0.105716</td>
+      <td>0.043984</td>
+      <td>1.766149</td>
+      <td>0.437628</td>
+      <td>9.729688</td>
+      <td>2.236757</td>
+      <td>0.742053</td>
+      <td>1.608422</td>
+      <td>0.463746</td>
+      <td>-0.142669</td>
+      <td>1.703273</td>
+      <td>-0.400358</td>
+      <td>3.619834</td>
+      <td>0.500884</td>
+      <td>2.949731</td>
+      <td>0.088048</td>
+      <td>3.002949</td>
+      <td>4.279052</td>
+      <td>0.345582</td>
+      <td>21.434212</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100282.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.193837</td>
+      <td>-0.198527</td>
+      <td>0.201546</td>
+      <td>0.258556</td>
+      <td>0.775204</td>
+      <td>0.084794</td>
+      <td>-0.289294</td>
+      <td>-0.816410</td>
+      <td>0.043851</td>
+      <td>-0.804761</td>
+      <td>-0.990958</td>
+      <td>-0.430381</td>
+      <td>-0.864132</td>
+      <td>-1.228160</td>
+      <td>-1.183112</td>
+      <td>-0.168118</td>
+      <td>-0.266643</td>
+      <td>-0.688895</td>
+      <td>-1.085411</td>
+      <td>-1.369968</td>
+      <td>-0.668337</td>
+      <td>-1.152202</td>
+      <td>-1.398108</td>
+      <td>-0.847479</td>
+      <td>-0.048443</td>
+      <td>-0.543755</td>
+      <td>-1.336000</td>
+      <td>-0.410307</td>
+      <td>-0.684526</td>
+      <td>-0.960676</td>
+      <td>-1.108473</td>
+      <td>-1.320151</td>
+      <td>-0.754329</td>
+      <td>-1.029887</td>
+      <td>-1.325601</td>
+      <td>-0.797039</td>
+      <td>11.880132</td>
+      <td>4.085320</td>
+      <td>0.002655</td>
+      <td>1.518562</td>
+      <td>0.181947</td>
+      <td>0.339014</td>
+      <td>0.367611</td>
+      <td>0.069932</td>
+      <td>-0.016032</td>
+      <td>0.026012</td>
+      <td>0.249007</td>
+      <td>0.126440</td>
+      <td>0.084472</td>
+      <td>0.038877</td>
+      <td>-0.051246</td>
+      <td>0.060294</td>
+      <td>0.322098</td>
+      <td>0.351182</td>
+      <td>0.691982</td>
+      <td>0.431166</td>
+      <td>1.238980</td>
+      <td>1.691136</td>
+      <td>2.177669</td>
+      <td>2.262174</td>
+      <td>0.317118</td>
+      <td>0.633876</td>
+      <td>0.097706</td>
+      <td>0.374643</td>
+      <td>0.701685</td>
+      <td>11.453061</td>
+      <td>-0.744805</td>
+      <td>1.112185</td>
+      <td>4.171312</td>
+      <td>0.250815</td>
+      <td>0.163049</td>
+      <td>0.523328</td>
+      <td>0.460908</td>
+      <td>16.669037</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>201490.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.699535</td>
+      <td>-0.684158</td>
+      <td>0.048825</td>
+      <td>0.042659</td>
+      <td>-0.818967</td>
+      <td>-0.917123</td>
+      <td>-0.901834</td>
+      <td>-0.066845</td>
+      <td>-0.291037</td>
+      <td>-0.861782</td>
+      <td>-0.670444</td>
+      <td>-0.994519</td>
+      <td>-1.244774</td>
+      <td>-0.467066</td>
+      <td>-0.446934</td>
+      <td>-0.705654</td>
+      <td>-1.067411</td>
+      <td>-1.406006</td>
+      <td>-0.642232</td>
+      <td>-0.835019</td>
+      <td>-1.241105</td>
+      <td>-1.080614</td>
+      <td>-1.135628</td>
+      <td>-0.715926</td>
+      <td>-0.979991</td>
+      <td>-0.523551</td>
+      <td>-0.483065</td>
+      <td>-1.251628</td>
+      <td>-1.122494</td>
+      <td>-1.251594</td>
+      <td>-1.053057</td>
+      <td>-0.754872</td>
+      <td>-1.233082</td>
+      <td>-1.178232</td>
+      <td>-1.180475</td>
+      <td>-0.994835</td>
+      <td>0.411345</td>
+      <td>5.013040</td>
+      <td>0.161584</td>
+      <td>-0.186142</td>
+      <td>-0.891383</td>
+      <td>0.117764</td>
+      <td>-0.182331</td>
+      <td>0.714546</td>
+      <td>-0.060312</td>
+      <td>0.167673</td>
+      <td>0.136215</td>
+      <td>0.182379</td>
+      <td>0.198255</td>
+      <td>0.192944</td>
+      <td>0.359381</td>
+      <td>0.609988</td>
+      <td>1.285468</td>
+      <td>0.926603</td>
+      <td>0.600817</td>
+      <td>0.441786</td>
+      <td>0.253795</td>
+      <td>0.778182</td>
+      <td>12.467906</td>
+      <td>2.795593</td>
+      <td>-0.112538</td>
+      <td>-0.104983</td>
+      <td>-0.299468</td>
+      <td>0.453333</td>
+      <td>2.817992</td>
+      <td>0.061071</td>
+      <td>2.477194</td>
+      <td>1.154867</td>
+      <td>13.933081</td>
+      <td>-0.232751</td>
+      <td>0.197867</td>
+      <td>6.162730</td>
+      <td>1.965759</td>
+      <td>41.645809</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>85</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># X is the input and Y is the output</span>
 <span class="c1"># Now drop the album_date_created column because we have previously sorted our values</span>
-<span class="n">full_tracks</span> <span class="o">=</span> <span class="n">full_tracks</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;album_date_created&#39;</span><span class="p">)</span>
+<span class="c1">#full_tracks = full_tracks.drop(columns=&#39;album_date_created&#39;)</span>
 <span class="c1">#full_tracks = full_tracks.reset_index()</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">full_tracks</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;yt_views&#39;</span><span class="p">)</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">full_tracks</span><span class="p">[</span><span class="s1">&#39;yt_views&#39;</span><span class="p">]</span>
@@ -122236,10 +122835,11 @@ Name: track_id, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_tracks</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Split datasets to multiple parts for training, validation and test purposes. </span>
+<span class="n">nb_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_tracks</span><span class="p">)</span>
 <span class="n">valid_split</span> <span class="o">=</span> <span class="mf">0.2</span>
 <span class="n">test_split</span> <span class="o">=</span> <span class="mf">0.2</span>
 <span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">nb_samples</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">valid_split</span><span class="o">-</span><span class="n">test_split</span><span class="p">))]</span>
@@ -122257,10 +122857,11 @@ Name: track_id, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len X_train: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Examine the size of the new arrays.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len X_train: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len Y_train: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_train</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len X_valid: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_valid</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len Y_valid: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_valid</span><span class="p">))</span>
@@ -122290,6 +122891,470 @@ len X_test:  8131
 len Y_test:  8131
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Use standard scaler to standardize features by removing the mean and scaling to unit variance.</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_valid</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+<span class="n">X_test</span>  <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Needed to reshape the 1D arrays to 2D arrays.</span>
+
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">Y_train</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Y_valid</span> <span class="o">=</span> <span class="n">Y_valid</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">Y_test</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Y_train</span><span class="p">)</span>
+
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Y_train</span><span class="p">)</span>
+<span class="n">Y_valid</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Y_valid</span><span class="p">)</span>
+<span class="n">Y_test</span>  <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Y_test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\sklearn\preprocessing\data.py:617: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  return self.partial_fit(X, y)
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:7: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  import sys
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:8: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:9: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  if __name__ == &#39;__main__&#39;:
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="k">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="k">import</span> <span class="n">SGD</span><span class="p">,</span> <span class="n">Adam</span>
+
+<span class="c1"># Set random seeds.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">set_random_seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">regularizers</span>
+
+<span class="n">col_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_tracks</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="c1">#model.add(Dense(200, input_shape=(col_num,)))</span>
+<span class="c1">#model.add(Activation(&quot;relu&quot;))</span>
+<span class="c1">#model.add(Dense(300))</span>
+<span class="c1">#model.add(Activation(&quot;relu&quot;))</span>
+<span class="c1">#model.add(Dense(50))</span>
+<span class="c1">#model.add(Activation(&quot;sigmoid&quot;))</span>
+<span class="c1">#model.add(Dense(1))</span>
+<span class="c1">#model.add(Activation(&quot;sigmoid&quot;))</span>
+
+<span class="c1"># We tried different neural network architectures. This one seemed to work better than the others.</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">col_num</span><span class="p">,),</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+
+<span class="c1"># We also tried different loss functions and optimizers in order to achieve better performance.</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="s1">&#39;mape&#39;</span><span class="p">,</span> <span class="s1">&#39;cosine&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Using TensorFlow backend.
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:25: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(32, input_shape=(84,), activation=&#34;sigmoid&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:26: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, activation=&#34;relu&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:27: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, activation=&#34;relu&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:28: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, activation=&#34;relu&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:29: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(32, activation=&#34;relu&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:30: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(16, activation=&#34;sigmoid&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:31: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(4, activation=&#34;sigmoid&#34;, kernel_initializer=&#34;uniform&#34;)`
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\ipykernel_launcher.py:32: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(1, activation=&#34;sigmoid&#34;, kernel_initializer=&#34;uniform&#34;)`
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">Callback</span>
+<span class="c1"># Implementation of early stopping - Based on practice 4</span>
+<span class="c1"># https://github.com/BME-SmartLab-Education/vitmav45/blob/master/04/XOR-Keras-callbacks.ipynb</span>
+<span class="k">class</span> <span class="nc">TrainingHistory</span><span class="p">(</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="c1"># Empty list to store metrics.</span>
+    <span class="k">def</span> <span class="nf">on_train_begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logs</span> <span class="o">=</span> <span class="p">{}):</span>
+        <span class="c1"># Error in training data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Error in validation data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_losses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Metric for model accuracy on training data. </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># # Metric for model accuracy on valdiation data. </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_accs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Number of training epoch.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Saving metrics after each epoch. </span>
+    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">logs</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;val_loss&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;acc&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_accs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;val_acc&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+<span class="n">history</span> <span class="o">=</span> <span class="n">TrainingHistory</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Implemention of early stopping.</span>
+
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">EarlyStopping</span>
+<span class="n">patience</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">early_stopping</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span> <span class="o">=</span> <span class="n">patience</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Save the best model.</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">ModelCheckpoint</span>
+<span class="n">checkpointer</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;weights.hdf5&#39;</span><span class="p">,</span> <span class="n">save_best_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Reduce learning rate.</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">ReduceLROnPlateau</span>
+<span class="n">reduce_lr</span> <span class="o">=</span> <span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">monitor</span> <span class="o">=</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">factor</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">patience</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">min_lr</span> <span class="o">=</span> <span class="mf">10e-5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">reduce_lr</span><span class="p">,</span> <span class="n">checkpointer</span><span class="p">,</span> <span class="n">early_stopping</span><span class="p">,</span> <span class="n">history</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/100
+24391/24391 [==============================] - 8s 333us/step - loss: 1.1780 - mean_squared_error: 1.1780 - mean_absolute_error: 0.6088 - mean_absolute_percentage_error: 634.8028 - cosine_proximity: 0.8143
+Epoch 2/100
+  608/24391 [..............................] - ETA: 6s - loss: 0.9283 - mean_squared_error: 0.9283 - mean_absolute_error: 0.5265 - mean_absolute_percentage_error: 422.4246 - cosine_proximity: 0.8092</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\keras\callbacks.py:1109: RuntimeWarning: Reduce LR on plateau conditioned on metric `val_loss` which is not available. Available metrics are: loss,mean_squared_error,mean_absolute_error,mean_absolute_percentage_error,cosine_proximity,lr
+  (self.monitor, &#39;,&#39;.join(list(logs.keys()))), RuntimeWarning
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\keras\callbacks.py:434: RuntimeWarning: Can save best model only with val_loss available, skipping.
+  &#39;skipping.&#39; % (self.monitor), RuntimeWarning)
+C:\Users\Lehel\Anaconda3\envs\tensorflow\lib\site-packages\keras\callbacks.py:569: RuntimeWarning: Early stopping conditioned on metric `val_loss` which is not available. Available metrics are: loss,mean_squared_error,mean_absolute_error,mean_absolute_percentage_error,cosine_proximity,lr
+  (self.monitor, &#39;,&#39;.join(list(logs.keys()))), RuntimeWarning
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>24391/24391 [==============================] - 6s 249us/step - loss: 1.0919 - mean_squared_error: 1.0919 - mean_absolute_error: 0.5010 - mean_absolute_percentage_error: 486.6160 - cosine_proximity: 0.8143
+Epoch 3/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0554 - mean_squared_error: 1.0554 - mean_absolute_error: 0.4407 - mean_absolute_percentage_error: 403.3359 - cosine_proximity: 0.8143
+Epoch 4/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0375 - mean_squared_error: 1.0375 - mean_absolute_error: 0.4038 - mean_absolute_percentage_error: 341.6094 - cosine_proximity: 0.8143
+Epoch 5/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0275 - mean_squared_error: 1.0275 - mean_absolute_error: 0.3790 - mean_absolute_percentage_error: 305.6932 - cosine_proximity: 0.8143
+Epoch 6/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0213 - mean_squared_error: 1.0213 - mean_absolute_error: 0.3619 - mean_absolute_percentage_error: 281.0663 - cosine_proximity: 0.8143
+Epoch 7/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0172 - mean_squared_error: 1.0172 - mean_absolute_error: 0.3489 - mean_absolute_percentage_error: 264.5293 - cosine_proximity: 0.8143
+Epoch 8/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0143 - mean_squared_error: 1.0143 - mean_absolute_error: 0.3388 - mean_absolute_percentage_error: 247.0711 - cosine_proximity: 0.8143
+Epoch 9/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0121 - mean_squared_error: 1.0121 - mean_absolute_error: 0.3307 - mean_absolute_percentage_error: 236.9762 - cosine_proximity: 0.8143
+Epoch 10/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0105 - mean_squared_error: 1.0105 - mean_absolute_error: 0.3242 - mean_absolute_percentage_error: 226.9924 - cosine_proximity: 0.8143
+Epoch 11/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0092 - mean_squared_error: 1.0092 - mean_absolute_error: 0.3184 - mean_absolute_percentage_error: 217.6974 - cosine_proximity: 0.8143
+Epoch 12/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0082 - mean_squared_error: 1.0082 - mean_absolute_error: 0.3139 - mean_absolute_percentage_error: 210.7702 - cosine_proximity: 0.8143
+Epoch 13/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0073 - mean_squared_error: 1.0073 - mean_absolute_error: 0.3098 - mean_absolute_percentage_error: 205.6066 - cosine_proximity: 0.8143
+Epoch 14/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0067 - mean_squared_error: 1.0067 - mean_absolute_error: 0.3062 - mean_absolute_percentage_error: 200.2210 - cosine_proximity: 0.8143
+Epoch 15/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0061 - mean_squared_error: 1.0061 - mean_absolute_error: 0.3031 - mean_absolute_percentage_error: 195.5506 - cosine_proximity: 0.8143
+Epoch 16/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0056 - mean_squared_error: 1.0056 - mean_absolute_error: 0.3003 - mean_absolute_percentage_error: 191.1693 - cosine_proximity: 0.8143
+Epoch 17/100
+24391/24391 [==============================] - 6s 243us/step - loss: 1.0051 - mean_squared_error: 1.0051 - mean_absolute_error: 0.2977 - mean_absolute_percentage_error: 186.8517 - cosine_proximity: 0.8143
+Epoch 18/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0048 - mean_squared_error: 1.0048 - mean_absolute_error: 0.2957 - mean_absolute_percentage_error: 184.4075 - cosine_proximity: 0.8143
+Epoch 19/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0044 - mean_squared_error: 1.0044 - mean_absolute_error: 0.2935 - mean_absolute_percentage_error: 180.7206 - cosine_proximity: 0.8143
+Epoch 20/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0042 - mean_squared_error: 1.0042 - mean_absolute_error: 0.2916 - mean_absolute_percentage_error: 178.1729 - cosine_proximity: 0.8143
+Epoch 21/100
+24391/24391 [==============================] - 6s 239us/step - loss: 1.0039 - mean_squared_error: 1.0039 - mean_absolute_error: 0.2900 - mean_absolute_percentage_error: 175.5522 - cosine_proximity: 0.8143
+Epoch 22/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0037 - mean_squared_error: 1.0037 - mean_absolute_error: 0.2884 - mean_absolute_percentage_error: 173.1426 - cosine_proximity: 0.8143
+Epoch 23/100
+24391/24391 [==============================] - 6s 243us/step - loss: 1.0035 - mean_squared_error: 1.0035 - mean_absolute_error: 0.2869 - mean_absolute_percentage_error: 171.1558 - cosine_proximity: 0.8143
+Epoch 24/100
+24391/24391 [==============================] - 6s 242us/step - loss: 1.0033 - mean_squared_error: 1.0033 - mean_absolute_error: 0.2856 - mean_absolute_percentage_error: 169.1311 - cosine_proximity: 0.8143
+Epoch 25/100
+24391/24391 [==============================] - 6s 239us/step - loss: 1.0031 - mean_squared_error: 1.0031 - mean_absolute_error: 0.2844 - mean_absolute_percentage_error: 167.4297 - cosine_proximity: 0.8143
+Epoch 26/100
+24391/24391 [==============================] - 6s 240us/step - loss: 1.0030 - mean_squared_error: 1.0030 - mean_absolute_error: 0.2832 - mean_absolute_percentage_error: 165.7148 - cosine_proximity: 0.8143
+Epoch 27/100
+24391/24391 [==============================] - 6s 242us/step - loss: 1.0028 - mean_squared_error: 1.0028 - mean_absolute_error: 0.2821 - mean_absolute_percentage_error: 163.9894 - cosine_proximity: 0.8143
+Epoch 28/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0027 - mean_squared_error: 1.0027 - mean_absolute_error: 0.2812 - mean_absolute_percentage_error: 162.4324 - cosine_proximity: 0.8143
+Epoch 29/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0026 - mean_squared_error: 1.0026 - mean_absolute_error: 0.2801 - mean_absolute_percentage_error: 160.9952 - cosine_proximity: 0.8143
+Epoch 30/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0025 - mean_squared_error: 1.0025 - mean_absolute_error: 0.2792 - mean_absolute_percentage_error: 159.7011 - cosine_proximity: 0.8143
+Epoch 31/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0024 - mean_squared_error: 1.0024 - mean_absolute_error: 0.2785 - mean_absolute_percentage_error: 158.5277 - cosine_proximity: 0.8143
+Epoch 32/100
+24391/24391 [==============================] - 6s 247us/step - loss: 1.0023 - mean_squared_error: 1.0023 - mean_absolute_error: 0.2776 - mean_absolute_percentage_error: 157.1793 - cosine_proximity: 0.8143
+Epoch 33/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0022 - mean_squared_error: 1.0022 - mean_absolute_error: 0.2769 - mean_absolute_percentage_error: 156.0260 - cosine_proximity: 0.8143
+Epoch 34/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0021 - mean_squared_error: 1.0021 - mean_absolute_error: 0.2761 - mean_absolute_percentage_error: 154.9214 - cosine_proximity: 0.8143
+Epoch 35/100
+24391/24391 [==============================] - 6s 257us/step - loss: 1.0020 - mean_squared_error: 1.0020 - mean_absolute_error: 0.2754 - mean_absolute_percentage_error: 154.0743 - cosine_proximity: 0.8143
+Epoch 36/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0020 - mean_squared_error: 1.0020 - mean_absolute_error: 0.2748 - mean_absolute_percentage_error: 153.0196 - cosine_proximity: 0.8143
+Epoch 37/100
+24391/24391 [==============================] - 6s 242us/step - loss: 1.0019 - mean_squared_error: 1.0019 - mean_absolute_error: 0.2742 - mean_absolute_percentage_error: 152.0420 - cosine_proximity: 0.8143
+Epoch 38/100
+24391/24391 [==============================] - 6s 244us/step - loss: 1.0018 - mean_squared_error: 1.0018 - mean_absolute_error: 0.2735 - mean_absolute_percentage_error: 151.1956 - cosine_proximity: 0.8143
+Epoch 39/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0018 - mean_squared_error: 1.0018 - mean_absolute_error: 0.2730 - mean_absolute_percentage_error: 150.4208 - cosine_proximity: 0.8143
+Epoch 40/100
+24391/24391 [==============================] - 6s 244us/step - loss: 1.0017 - mean_squared_error: 1.0017 - mean_absolute_error: 0.2724 - mean_absolute_percentage_error: 149.4595 - cosine_proximity: 0.8143
+Epoch 41/100
+24391/24391 [==============================] - 6s 247us/step - loss: 1.0017 - mean_squared_error: 1.0017 - mean_absolute_error: 0.2719 - mean_absolute_percentage_error: 148.7143 - cosine_proximity: 0.8143
+Epoch 42/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0016 - mean_squared_error: 1.0016 - mean_absolute_error: 0.2713 - mean_absolute_percentage_error: 147.8888 - cosine_proximity: 0.8143
+Epoch 43/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0016 - mean_squared_error: 1.0016 - mean_absolute_error: 0.2709 - mean_absolute_percentage_error: 147.3105 - cosine_proximity: 0.8143
+Epoch 44/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0015 - mean_squared_error: 1.0015 - mean_absolute_error: 0.2704 - mean_absolute_percentage_error: 146.5705 - cosine_proximity: 0.8143
+Epoch 45/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0015 - mean_squared_error: 1.0015 - mean_absolute_error: 0.2700 - mean_absolute_percentage_error: 145.8525 - cosine_proximity: 0.8143
+Epoch 46/100
+24391/24391 [==============================] - 6s 247us/step - loss: 1.0015 - mean_squared_error: 1.0015 - mean_absolute_error: 0.2696 - mean_absolute_percentage_error: 145.3239 - cosine_proximity: 0.8143
+Epoch 47/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0014 - mean_squared_error: 1.0014 - mean_absolute_error: 0.2691 - mean_absolute_percentage_error: 144.7007 - cosine_proximity: 0.8143
+Epoch 48/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0014 - mean_squared_error: 1.0014 - mean_absolute_error: 0.2688 - mean_absolute_percentage_error: 144.0548 - cosine_proximity: 0.8143
+Epoch 49/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0014 - mean_squared_error: 1.0014 - mean_absolute_error: 0.2684 - mean_absolute_percentage_error: 143.5168 - cosine_proximity: 0.8143
+Epoch 50/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0013 - mean_squared_error: 1.0013 - mean_absolute_error: 0.2680 - mean_absolute_percentage_error: 142.9420 - cosine_proximity: 0.8143
+Epoch 51/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0013 - mean_squared_error: 1.0013 - mean_absolute_error: 0.2676 - mean_absolute_percentage_error: 142.4074 - cosine_proximity: 0.8143
+Epoch 52/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0013 - mean_squared_error: 1.0013 - mean_absolute_error: 0.2673 - mean_absolute_percentage_error: 141.9226 - cosine_proximity: 0.8143
+Epoch 53/100
+24391/24391 [==============================] - 6s 256us/step - loss: 1.0012 - mean_squared_error: 1.0012 - mean_absolute_error: 0.2669 - mean_absolute_percentage_error: 141.4143 - cosine_proximity: 0.8143
+Epoch 54/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0012 - mean_squared_error: 1.0012 - mean_absolute_error: 0.2666 - mean_absolute_percentage_error: 140.8540 - cosine_proximity: 0.8143
+Epoch 55/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0012 - mean_squared_error: 1.0012 - mean_absolute_error: 0.2663 - mean_absolute_percentage_error: 140.4378 - cosine_proximity: 0.8143
+Epoch 56/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0012 - mean_squared_error: 1.0012 - mean_absolute_error: 0.2660 - mean_absolute_percentage_error: 139.9290 - cosine_proximity: 0.8143
+Epoch 57/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0011 - mean_squared_error: 1.0011 - mean_absolute_error: 0.2657 - mean_absolute_percentage_error: 139.5079 - cosine_proximity: 0.8143
+Epoch 58/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0011 - mean_squared_error: 1.0011 - mean_absolute_error: 0.2654 - mean_absolute_percentage_error: 139.0890 - cosine_proximity: 0.8143
+Epoch 59/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0011 - mean_squared_error: 1.0011 - mean_absolute_error: 0.2651 - mean_absolute_percentage_error: 138.7071 - cosine_proximity: 0.8143
+Epoch 60/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0011 - mean_squared_error: 1.0011 - mean_absolute_error: 0.2648 - mean_absolute_percentage_error: 138.2370 - cosine_proximity: 0.8143
+Epoch 61/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0010 - mean_squared_error: 1.0010 - mean_absolute_error: 0.2646 - mean_absolute_percentage_error: 137.9118 - cosine_proximity: 0.8143
+Epoch 62/100
+24391/24391 [==============================] - 6s 247us/step - loss: 1.0010 - mean_squared_error: 1.0010 - mean_absolute_error: 0.2643 - mean_absolute_percentage_error: 137.5195 - cosine_proximity: 0.8143
+Epoch 63/100
+24391/24391 [==============================] - 6s 247us/step - loss: 1.0010 - mean_squared_error: 1.0010 - mean_absolute_error: 0.2641 - mean_absolute_percentage_error: 137.1112 - cosine_proximity: 0.8143
+Epoch 64/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0010 - mean_squared_error: 1.0010 - mean_absolute_error: 0.2638 - mean_absolute_percentage_error: 136.7610 - cosine_proximity: 0.8143
+Epoch 65/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0010 - mean_squared_error: 1.0010 - mean_absolute_error: 0.2636 - mean_absolute_percentage_error: 136.3514 - cosine_proximity: 0.8143
+Epoch 66/100
+24391/24391 [==============================] - 6s 256us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2633 - mean_absolute_percentage_error: 136.0010 - cosine_proximity: 0.8143
+Epoch 67/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2631 - mean_absolute_percentage_error: 135.6857 - cosine_proximity: 0.8143
+Epoch 68/100
+24391/24391 [==============================] - 6s 256us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2629 - mean_absolute_percentage_error: 135.4089 - cosine_proximity: 0.8143
+Epoch 69/100
+24391/24391 [==============================] - 6s 255us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2627 - mean_absolute_percentage_error: 135.0436 - cosine_proximity: 0.8143
+Epoch 70/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2625 - mean_absolute_percentage_error: 134.7297 - cosine_proximity: 0.8143
+Epoch 71/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2622 - mean_absolute_percentage_error: 134.4358 - cosine_proximity: 0.8143
+Epoch 72/100
+24391/24391 [==============================] - 6s 258us/step - loss: 1.0009 - mean_squared_error: 1.0009 - mean_absolute_error: 0.2620 - mean_absolute_percentage_error: 134.1484 - cosine_proximity: 0.8143
+Epoch 73/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2618 - mean_absolute_percentage_error: 133.8232 - cosine_proximity: 0.8143
+Epoch 74/100
+24391/24391 [==============================] - 6s 256us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2616 - mean_absolute_percentage_error: 133.5238 - cosine_proximity: 0.8143
+Epoch 75/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2614 - mean_absolute_percentage_error: 133.2543 - cosine_proximity: 0.8143
+Epoch 76/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2613 - mean_absolute_percentage_error: 133.0193 - cosine_proximity: 0.8143
+Epoch 77/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2611 - mean_absolute_percentage_error: 132.7698 - cosine_proximity: 0.8143
+Epoch 78/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2609 - mean_absolute_percentage_error: 132.5120 - cosine_proximity: 0.8143
+Epoch 79/100
+24391/24391 [==============================] - 6s 246us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2607 - mean_absolute_percentage_error: 132.2043 - cosine_proximity: 0.8143
+Epoch 80/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0008 - mean_squared_error: 1.0008 - mean_absolute_error: 0.2606 - mean_absolute_percentage_error: 131.9902 - cosine_proximity: 0.8143
+Epoch 81/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2604 - mean_absolute_percentage_error: 131.7093 - cosine_proximity: 0.8143
+Epoch 82/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2603 - mean_absolute_percentage_error: 131.5316 - cosine_proximity: 0.8143
+Epoch 83/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2601 - mean_absolute_percentage_error: 131.2543 - cosine_proximity: 0.8143
+Epoch 84/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2599 - mean_absolute_percentage_error: 131.0126 - cosine_proximity: 0.8143
+Epoch 85/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2598 - mean_absolute_percentage_error: 130.8383 - cosine_proximity: 0.8143
+Epoch 86/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2596 - mean_absolute_percentage_error: 130.6057 - cosine_proximity: 0.8143
+Epoch 87/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2595 - mean_absolute_percentage_error: 130.3660 - cosine_proximity: 0.8143
+Epoch 88/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2593 - mean_absolute_percentage_error: 130.1342 - cosine_proximity: 0.8143
+Epoch 89/100
+24391/24391 [==============================] - 6s 253us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2592 - mean_absolute_percentage_error: 129.9306 - cosine_proximity: 0.8143
+Epoch 90/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0007 - mean_squared_error: 1.0007 - mean_absolute_error: 0.2591 - mean_absolute_percentage_error: 129.7490 - cosine_proximity: 0.8143
+Epoch 91/100
+24391/24391 [==============================] - 6s 249us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2589 - mean_absolute_percentage_error: 129.5091 - cosine_proximity: 0.8143
+Epoch 92/100
+24391/24391 [==============================] - 6s 250us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2588 - mean_absolute_percentage_error: 129.3264 - cosine_proximity: 0.8143
+Epoch 93/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2587 - mean_absolute_percentage_error: 129.1825 - cosine_proximity: 0.8143
+Epoch 94/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2585 - mean_absolute_percentage_error: 128.9221 - cosine_proximity: 0.8143
+Epoch 95/100
+24391/24391 [==============================] - 6s 245us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2584 - mean_absolute_percentage_error: 128.7440 - cosine_proximity: 0.8143
+Epoch 96/100
+24391/24391 [==============================] - 6s 251us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2583 - mean_absolute_percentage_error: 128.5692 - cosine_proximity: 0.8143
+Epoch 97/100
+24391/24391 [==============================] - 6s 252us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2581 - mean_absolute_percentage_error: 128.3971 - cosine_proximity: 0.8143
+Epoch 98/100
+24391/24391 [==============================] - 6s 258us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2580 - mean_absolute_percentage_error: 128.2209 - cosine_proximity: 0.8143
+Epoch 99/100
+24391/24391 [==============================] - 6s 242us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2579 - mean_absolute_percentage_error: 128.0180 - cosine_proximity: 0.8143
+Epoch 100/100
+24391/24391 [==============================] - 6s 248us/step - loss: 1.0006 - mean_squared_error: 1.0006 - mean_absolute_error: 0.2578 - mean_absolute_percentage_error: 127.8801 - cosine_proximity: 0.8143
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x26cad6c6ef0&gt;</pre>
+</div>
+
 </div>
 
 </div>
