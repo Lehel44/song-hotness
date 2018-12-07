@@ -52,6 +52,10 @@ Google API key in **youtube-scripts/yt_view_count.py**.
 
 For the homework's second milestone you need to run the **data-proc/songs_data_processing.ipynb** script similar way to the first milestone. In our dataset we have statistics about audio tones and spectrum dispersions like chroma cens or spectral contrast. These values lie side-by-side so at this point we have not used 1D convolution because this value borders could be inside in a window. We tried some fully conncted networks, the actual can be found in the **songs_data_processing.ipynb** script and tried to learn the network various subsets of our training data. We have not found the best network or the best subset but the network learned most of the time.
 
+**Third milestone:**
+
+**Deep Learning Documentation.pdf** consist the documentation. Our final results is in the **data_proc/songs_data_processing.ipynb** script that you can run as described in the previous milestone. Our best model was a simple feed forward network than we used hyperparameter optimization on that.
+
 ## References
 
  FMA: A Dataset For Music Analysis
