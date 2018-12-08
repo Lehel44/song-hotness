@@ -55,6 +55,8 @@ For the homework's second milestone you need to run the **data-proc/songs_data_p
 **Third milestone:**
 
 **Deep Learning Documentation.pdf** consist the documentation. Our final results is in the **data_proc/songs_data_processing.ipynb** script that you can run as described in the previous milestone. Our best model was a simple feed forward network than we used hyperparameter optimization on that.
+**full_tracks.csv** here:
+https://drive.google.com/open?id=1CG7zMMikkyEo9LO9Fb0JWd2OfoCeMF_Z
 
 ## References
 
